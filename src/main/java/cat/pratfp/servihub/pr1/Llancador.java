@@ -43,7 +43,8 @@ public final class Llancador {
         pb.inheritIO();
 
         // TODO FORAT 02 · Llança el procés fill i desa'l a la variable p.
-        Process p = Forat.n(2);
+        Process p = pb.start();
+
         // TODO FORAT 03 · Espera que el fill acabi i retorna el seu codi de retorn.
         return Forat.n(3);
     }
