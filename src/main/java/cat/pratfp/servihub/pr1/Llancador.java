@@ -101,7 +101,8 @@ public final class Llancador {
         }
         FilLector out = FilLector.engega(p.getInputStream());
         // TODO FORAT 07 · Engega un segon FilLector que buidi la sortida d'ERROR del fill.
-        FilLector err = Forat.n(7);
+        FilLector err = FilLector.engega(p.getErrorStream());
+
         int codi = p.waitFor();
         out.join();
         err.join();
