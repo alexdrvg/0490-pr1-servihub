@@ -1,11 +1,6 @@
 package cat.pratfp.servihub.pr1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -246,9 +241,10 @@ public final class Llancador {
         Files.createDirectories(carpeta);
         ProcessBuilder pb = new ProcessBuilder(ordre);
         // TODO FORAT 17 · Fes que el directori de treball del fill sigui la carpeta.
-        Forat.n(17);
+        pb.directory(carpeta.toFile());
         // TODO FORAT 18 · Redirigeix la sortida ESTÀNDARD del fill al fitxer <carpeta>/<nom>.out (l'error ja està fet a sota).
-        Forat.n(18);
+        pb.redirectOutput(carpeta.resolve(nom + ".out").toFile());
+
         pb.redirectError(carpeta.resolve(nom + ".err").toFile());
         Process p = pb.start();
         int codi = p.waitFor();
