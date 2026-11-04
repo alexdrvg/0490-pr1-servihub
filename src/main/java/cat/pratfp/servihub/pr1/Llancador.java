@@ -97,7 +97,7 @@ public final class Llancador {
             p = new ProcessBuilder(ordre).start();
         } catch (IOException e) {
             // TODO FORAT 06 · El programa no s'ha pogut llançar: retorna un Resultat de feina no arrencada amb el missatge de l'excepció.
-            return Forat.n(6);
+            return Resultat.noArrencada(nom, e.getMessage());
         }
         FilLector out = FilLector.engega(p.getInputStream());
         // TODO FORAT 07 · Engega un segon FilLector que buidi la sortida d'ERROR del fill.
