@@ -107,7 +107,8 @@ public final class Llancador {
         out.join();
         err.join();
         // TODO FORAT 08 · Desa a pid l'identificador del procés fill (no el del pare).
-        long pid = Forat.n(8);
+        long pid = p.pid();
+
         long durada = System.currentTimeMillis() - inici;
         return new Resultat(nom, pid, codi, Estat.segonsCodi(codi), durada, out.text(), err.text());
     }
