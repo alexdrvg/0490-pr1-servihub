@@ -46,7 +46,7 @@ public final class Llancador {
         Process p = pb.start();
 
         // TODO FORAT 03 · Espera que el fill acabi i retorna el seu codi de retorn.
-        return Forat.n(3);
+        return p.waitFor();
     }
 
     // =====================================================================
